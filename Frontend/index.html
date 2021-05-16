@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulario - Prontuário</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.11/jquery.mask.min.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Prontuário Médico</h1>
+
+        <form method="POST" action="#" class="forms" id="FormAddress">
+            <div class="container-one">
+                <div class="title">Endereço</div>
+
+                <div class="container-second">
+                    <div class="container-label-input">
+                        <label class="label">CEP</label>
+                        <input id="cep" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Numero</label>
+                        <input id="number" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">UF</label>
+                        <input id="uf" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Bairro</label>
+                        <input id="district" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Logradouro</label>
+                        <input id="street" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Cidade</label>
+                        <input id="city" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Complemento</label>
+                        <input id="complement" required />
+                    </div>
+                </div>
+                <button class="button" type="button" id="buttonAddress">Enviar</button>
+            </div>
+        </form>
+
+        <form method="POST" action="#" class="forms" id="FormPatient">
+            <div class="container-one">
+                <div class="title">Paciente</div>
+
+                <div class="container-second">
+                    <div class="container-label-input">
+                        <label class="label">Nome</label>
+                        <input name="name" id="pac_nome" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Sobrenome</label>
+                        <input id="pac_sobrenome" />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Tipo sanguínio</label>
+                        <select name="sex" id="pac_sangue">
+                            <option value="" selected disabled>--</option>
+                            <option value="A+">A+</option>
+                            <option value="A-">A-</option>
+                            <option value="B+">B+</option>
+                            <option value="B-">B-</option>
+                            <option value="AB+">AB+</option>
+                            <option value="AB-">AB-</option>
+                            <option value="O+">O+</option>
+                            <option value="O-">O-</option>
+                        </select>
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">RG</label>
+                        <input 
+                            id="pac_rg"
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
+                            maxlength="9"
+                            type="number"
+                        />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Nascimento</label>
+                        <input id="pac_nasc" type="date" />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Sexo</label>
+                        <select name="sex" id="pac_sex">
+                            <option value="" selected disabled>--</option>
+                            <option value="masculino">Masculino</option>
+                            <option value="feminino">Feminino</option>
+                            <option value="not-optant">Não Optante</option>
+                        </select>
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">CPF</label>
+                        <input 
+                            id="pac_cpf" 
+                            type="number" 
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
+                            maxlength="11" 
+                        />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Nome da Mãe</label>
+                        <input id="pac_mother" />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Nome do Pai</label>
+                        <input id="pac_father" />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Telefone</label>
+                        <input 
+                            id="pac_phone"
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            maxlength="11"
+                            minlength="10"
+                            type="number"
+                        />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Convênio</label>
+                        <input id="pac_conv" />
+                    </div>
+                </div>
+                <button class="button" id="buttonPatient" type="button">Enviar</button>
+            </div>
+        </form>
+
+        <form onsubmit="sendData();" method="POST" class="forms" id="Form">
+            <div class="container-one">
+                <div class="title">Acompanhante</div>
+
+                <div class="container-second">
+                    <div class="container-label-input">
+                        <label class="label">Nome do acompanhante</label>
+                        <input id="name" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Relação</label>
+                        <input id="relationship" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">CPF</label>
+                        <input id="cpf" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">RG</label>
+                        <input id="rg" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Data de Nascimento</label>
+                        <input id="born" required />
+                    </div>
+                </div>
+                <button class="button">Enviar</button>
+            </div>
+        </form>
+
+        <form onsubmit="sendData();" method="POST" class="forms" id="Form">
+            <div class="container-one">
+                <div class="title">Cirurgia</div>
+
+                <div class="container-second">
+                    <div class="container-label-input">
+                        <label class="label">Médico</label>
+                        <input id="doctor" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Motivo</label>
+                        <input id="reason" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Duração</label>
+                        <input id="duration" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Observação</label>
+                        <input id="obs" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Posologia</label>
+                        <input id="posology" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Anestesia</label>
+                        <input id="anestesy" required />
+                    </div>
+                </div>
+                <button class="button">Enviar</button>
+            </div>
+        </form>
+
+        <form onsubmit="sendData();" method="POST" class="forms" id="Form">
+            <div class="container-one">
+                <div class="title">Consulta</div>
+
+                <div class="container-second">
+                    <div class="container-label-input">
+                        <label class="label">Especialidade</label>
+                        <input id="especiality" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Funcionario</label>
+                        <input id="func" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Unidade</label>
+                        <input id="unit" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Data_Retorno</label>
+                        <input id="return" required />
+                    </div>
+                </div>
+                <button class="button">Enviar</button>
+            </div>
+        </form>
+
+        <form onsubmit="sendData();" method="POST" class="forms" id="Form">
+            <div class="container-one">
+                <div class="title">Encaminhamento</div>
+
+                <div class="container-second">
+                    <div class="container-label-input">
+                        <label class="label">Especialidade</label>
+                        <input id="especiality_enc" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Motivo</label>
+                        <input id="reason_enc" required />
+                    </div>
+                </div>
+                <button class="button">Enviar</button>
+            </div>
+        </form>
+
+        <form onsubmit="sendData();" method="POST" class="forms" id="Form">
+            <div class="container-one">
+                <div class="title">Exame</div>
+
+                <div class="container-second">
+                    <div class="container-label-input">
+                        <label class="label">Nome do exame</label>
+                        <input id="exam_name" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">observação</label>
+                        <input id="exam_obs" required />
+                    </div>
+                </div>
+                <button class="button">Enviar</button>
+            </div>
+        </form>
+
+        <form onsubmit="sendData();" method="POST" class="forms" id="Form">
+            <div class="container-one">
+                <div class="title">Funcionário</div>
+
+                <div class="container-second">
+                    <div class="container-label-input">
+                        <label class="label">Especialidade</label>
+                        <input id="func_espec" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Função</label>
+                        <input id="func_func" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Numero de documento</label>
+                        <input id="func_docNum" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Tipo de documento</label>
+                        <input id="func_docType" required />
+                    </div>
+                </div>
+                <button class="button">Enviar</button>
+            </div>
+        </form>
+
+        <form onsubmit="sendData();" method="POST" class="forms" id="Form">
+            <div class="container-one">
+                <div class="title">Prescrição</div>
+
+                <div class="container-second">
+                    <div class="container-label-input">
+                        <label class="label">Motivo</label>
+                        <input id="presc_reason" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Posologia</label>
+                        <input id="presc_poso" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Tipo</label>
+                        <input id="presc_type" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Nome</label>
+                        <input id="presc_name" required />
+                    </div>
+                </div>
+                <button class="button">Enviar</button>
+            </div>
+        </form>
+
+        <form onsubmit="sendData();" method="POST" class="forms" id="Form">
+            <div class="container-one">
+                <div class="title">Unidade</div>
+
+                <div class="container-second">
+                    <div class="container-label-input">
+                        <label class="label">Nome da Unidade</label>
+                        <input id="unit_name" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Bairro</label>
+                        <input id="unit_district" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">CEP</label>
+                        <input id="unit_cep" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Endereço</label>
+                        <input id="unit_street" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Cidade</label>
+                        <input id="unit_city" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Estado</label>
+                        <input id="unit_state" required />
+                    </div>
+                </div>
+
+                <button class="button">Enviar</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="./Connections/Patient.js"></script>
+    <script src="./Connections/Address.js"></script>
+</body>
+
+</html>

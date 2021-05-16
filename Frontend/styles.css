@@ -1,0 +1,88 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #F5F5F5;
+}
+
+h1 {
+    font-size: 2rem;
+    font-family: 'Roboto';
+    text-align: center;
+    margin: 20px 0;
+}
+
+.container, .container-one {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.container-one {
+    width: 90vw;
+    border: 1px solid rgba(0,0,0,0.2);
+    margin: 20px 0;
+    padding: 20px;
+    justify-content: flex-start;
+    border-radius: 16px;
+}
+
+.title {
+    font-size: 1.5rem;
+    font-family: 'Roboto';
+    margin: 0 0 20px;
+}
+
+.container-second {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.container-label-input {
+    display: flex;
+    flex-direction: column;
+    margin: 10px 20px;
+}
+
+.container-label-input input {
+    border-radius: 10px;
+    border: 1px solid #CFCFCF;
+    font-size: 1rem;
+    font-family: 'Roboto';
+    padding: 10px 20px;
+    width: 300px;
+    outline: none;
+}
+
+.container-label-input label {
+    font-size: 1rem;
+    font-family: 'Roboto';
+    margin-left: 15px;
+    margin-bottom: 5px;
+}
+
+.container-label-input select {
+    border-radius: 10px;
+    border: 1px solid #CFCFCF;
+    font-size: 1rem;
+    font-family: 'Roboto';
+    padding: 10px 20px;
+    width: 300px;
+    outline: none;
+}
+
+.button {
+    width: 120px;
+    height: 30px;
+    align-self: center;
+    margin-top: 20px;
+    border-radius: 10px;
+    border: 1px solid #CFCFCF;
+    cursor: pointer;
+}
