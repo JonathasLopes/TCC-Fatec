@@ -17,50 +17,6 @@
     <div class="container">
         <h1>Prontuário Médico</h1>
 
-        <form method="POST" action="#" class="forms" id="FormAddress">
-            <div class="container-one">
-                <div class="title">Endereço</div>
-
-                <div class="container-second">
-                    <div class="container-label-input">
-                        <label class="label">CEP</label>
-                        <input id="cep" required />
-                    </div>
-
-                    <div class="container-label-input">
-                        <label class="label">Numero</label>
-                        <input id="number" required />
-                    </div>
-
-                    <div class="container-label-input">
-                        <label class="label">UF</label>
-                        <input id="uf" required />
-                    </div>
-
-                    <div class="container-label-input">
-                        <label class="label">Bairro</label>
-                        <input id="district" required />
-                    </div>
-
-                    <div class="container-label-input">
-                        <label class="label">Logradouro</label>
-                        <input id="street" required />
-                    </div>
-
-                    <div class="container-label-input">
-                        <label class="label">Cidade</label>
-                        <input id="city" required />
-                    </div>
-
-                    <div class="container-label-input">
-                        <label class="label">Complemento</label>
-                        <input id="complement" required />
-                    </div>
-                </div>
-                <button class="button" type="button" id="buttonAddress">Enviar</button>
-            </div>
-        </form>
-
         <form method="POST" action="#" class="forms" id="FormPatient">
             <div class="container-one">
                 <div class="title">Paciente</div>
@@ -156,7 +112,51 @@
             </div>
         </form>
 
-        <form onsubmit="sendData();" method="POST" class="forms" id="Form">
+        <form method="POST" action="#" class="forms" id="FormAddress">
+            <div class="container-one">
+                <div class="title">Endereço</div>
+
+                <div class="container-second">
+                    <div class="container-label-input">
+                        <label class="label">CEP</label>
+                        <input id="cep" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Numero</label>
+                        <input id="number" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">UF</label>
+                        <input id="uf" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Bairro</label>
+                        <input id="district" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Logradouro</label>
+                        <input id="street" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Cidade</label>
+                        <input id="city" required />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Complemento</label>
+                        <input id="complement" required />
+                    </div>
+                </div>
+                <button class="button" type="button" id="buttonAddress">Enviar</button>
+            </div>
+        </form>
+
+        <form method="POST" action="#" class="forms" id="FormCompanion">
             <div class="container-one">
                 <div class="title">Acompanhante</div>
 
@@ -186,11 +186,11 @@
                         <input id="born" required />
                     </div>
                 </div>
-                <button class="button">Enviar</button>
+                <button class="button" type="button" id="buttonCompanion">Enviar</button>
             </div>
         </form>
 
-        <form onsubmit="sendData();" method="POST" class="forms" id="Form">
+        <form method="POST" action="#" class="forms" id="FormCirurgy">
             <div class="container-one">
                 <div class="title">Cirurgia</div>
 
@@ -225,11 +225,11 @@
                         <input id="anestesy" required />
                     </div>
                 </div>
-                <button class="button">Enviar</button>
+                <button class="button" type="button" id="buttonCompanion">Enviar</button>
             </div>
         </form>
 
-        <form onsubmit="sendData();" method="POST" class="forms" id="Form">
+        <form method="POST" action="#" class="forms" id="FormQuery">
             <div class="container-one">
                 <div class="title">Consulta</div>
 
@@ -254,11 +254,11 @@
                         <input id="return" required />
                     </div>
                 </div>
-                <button class="button">Enviar</button>
+                <button class="button" type="button" id="buttonQuery">Enviar</button>
             </div>
         </form>
 
-        <form onsubmit="sendData();" method="POST" class="forms" id="Form">
+        <form method="POST" action="#" class="forms" id="FormForwarding">
             <div class="container-one">
                 <div class="title">Encaminhamento</div>
 
@@ -273,11 +273,11 @@
                         <input id="reason_enc" required />
                     </div>
                 </div>
-                <button class="button">Enviar</button>
+                <button class="button" type="button" id="buttonForwarding">Enviar</button>
             </div>
         </form>
 
-        <form onsubmit="sendData();" method="POST" class="forms" id="Form">
+        <form method="POST" action="#" class="forms" id="FormExam">
             <div class="container-one">
                 <div class="title">Exame</div>
 
@@ -292,11 +292,11 @@
                         <input id="exam_obs" required />
                     </div>
                 </div>
-                <button class="button">Enviar</button>
+                <button class="button" type="button" id="buttonExam">Enviar</button>
             </div>
         </form>
 
-        <form onsubmit="sendData();" method="POST" class="forms" id="Form">
+        <form method="POST" action="#" class="forms" id="FormEmployee">
             <div class="container-one">
                 <div class="title">Funcionário</div>
 
@@ -321,11 +321,11 @@
                         <input id="func_docType" required />
                     </div>
                 </div>
-                <button class="button">Enviar</button>
+                <button class="button" type="button" id="buttonEmployee">Enviar</button>
             </div>
         </form>
 
-        <form onsubmit="sendData();" method="POST" class="forms" id="Form">
+        <form method="POST" action="#" class="forms" id="FormPrescription">
             <div class="container-one">
                 <div class="title">Prescrição</div>
 
@@ -350,11 +350,11 @@
                         <input id="presc_name" required />
                     </div>
                 </div>
-                <button class="button">Enviar</button>
+                <button class="button" type="button" id="buttonPrescription">Enviar</button>
             </div>
         </form>
 
-        <form onsubmit="sendData();" method="POST" class="forms" id="Form">
+        <form method="POST" action="#" class="forms" id="FormUnit">
             <div class="container-one">
                 <div class="title">Unidade</div>
 
@@ -390,7 +390,7 @@
                     </div>
                 </div>
 
-                <button class="button">Enviar</button>
+                <button class="button" type="button" id="buttonPrescription">Enviar</button>
             </div>
         </form>
     </div>

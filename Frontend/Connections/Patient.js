@@ -1,9 +1,7 @@
 const FormPatient = document.getElementById('FormPatient');
 const buttonPatient = document.getElementById('buttonPatient');
 
-buttonPatient.addEventListener('click', () => {
-    let endereco = "";
-    
+buttonPatient.addEventListener('click', () => {    
     let name = FormPatient.pac_nome.value;
     let sobrenome = FormPatient.pac_sobrenome.value;
     let tipoSanguinio = (FormPatient.pac_sangue.value).toUpperCase();

@@ -1,37 +1,51 @@
 const FormAddress = document.getElementById('FormAddress');
 const buttonAddress = document.getElementById('buttonAddress');
+const url = 'http://localhost:3333/address/search?cep=74145852&num=98';
 
-FormAddress.addEventListener('click', () => {
-    let endereco = "";
-    
-    let name = FormAddress.pac_nome.value;
-    let sobrenome = FormAddress.pac_sobrenome.value;
-    let tipoSanguinio = (FormAddress.pac_sangue.value).toUpperCase();
-    let rg = FormAddress.pac_rg.value;
-    let sexo = FormAddress.pac_sex.value;
-    let cpf = FormAddress.pac_cpf.value;
-    let nomeMae = FormAddress.pac_mother.value;
-    let nomePai = FormAddress.pac_father.value;
-    let telefone = FormAddress.pac_phone.value;
-    let convenio = FormAddress.pac_conv.value;
-    let nascimento = new Date(Date.parse(FormAddress.pac_nasc.value));
+buttonAddress.addEventListener('click', () => {
+    let cep = FormAddress.cep.value;
+    let number = FormAddress.number.value;
+    let uf = (FormAddress.uf.value).toUpperCase();
+    let district = FormAddress.district.value;
+    let street = FormAddress.street.value;
+    let city = FormAddress.city.value;
+    let complement = FormAddress.complement.value;
 
-    const jsonAddress = JSON.stringify({
-        nome: name,
-        sobrenome: sobrenome,
-        tipo_sanguineo: tipoSanguinio,
-        data_nasc: nascimento,
-        RG: rg,
-        Sexo: sexo,
-        CPF: cpf,
-        Nome_Mae: nomeMae,
-        Nome_Pai: nomePai,
-        Telefone: telefone,
-        convenio: convenio,
-    });
+    const jsonAddress = {
+        CEP: cep,
+        Numero: number,
+        UF: uf,
+        Bairro: district,
+        Logradouro: street,
+        Cidade: city,
+        Complemento: complement,
+    };
 
-    console.log(JSON.parse(jsonAddress));
-    
+    const post = {
+        method: "POST",
+        body: JSON.stringify(jsonAddress),
+        headers: {
+            "Content-type": "application/json",
+        }
+    }
 
-    formsPatient.pac_nome.value = ' '; 
+    const get = {
+        method: "GET",
+        headers: {
+            "Content-type": "application/json",
+        }
+    }
+
+    function FetchWithTimeout(url, options, timeout = 15000) {
+        return Promise.race([
+            fetch(url, options),
+            new Promise((_, reject) =>            
+                setTimeout(() => {
+                    reject(new Error('Serviço indisponível ' + url))
+                }, timeout)
+            )
+        ]);
+    }
+
+    FetchWithTimeout(url, get).then(resp => console.log(resp.body));
 });
