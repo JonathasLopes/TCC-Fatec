@@ -1,17 +1,26 @@
 const client = require('../database');
+const { ObjectId } = require('mongodb');
 
 class PostTable {
     async insert(request, response, next) {
         try {
             const body = request.body;
 
-            client.connect(err => {
+            const { CEP, Numero, CPF } = request.body;
+
+            delete body['CPF'];
+
+            client.connect(async err => {
                 const db = client.db("Prontuario");
 
-                db.collection('Endereco').insertOne(body).then(() => {
-                    return response.json({ message: 'Deu tudo certo!' })
-                }).catch(err => {
+                db.collection('Endereco').insertOne(body).catch(err => {
                     return response.status(400).json(err);
+                });
+
+                const result = await db.collection('Endereco').findOne({ CEP: CEP, Numero: Numero });
+
+                await db.collection('Paciente').findOneAndUpdate({ "CPF": CPF }, { $set: { "Endereco": ObjectId(result._id) } }).then(() => {
+                    return response.json({ message: 'Deu Tudo Certo! Paciente com endereço!' });
                 });
             });
         } catch (error) {

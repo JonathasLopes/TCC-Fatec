@@ -49,12 +49,9 @@
 
                     <div class="container-label-input">
                         <label class="label">RG</label>
-                        <input 
-                            id="pac_rg"
-                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
-                            maxlength="9"
-                            type="number"
-                        />
+                        <input id="pac_rg"
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            maxlength="9" type="number" />
                     </div>
 
                     <div class="container-label-input">
@@ -74,12 +71,9 @@
 
                     <div class="container-label-input">
                         <label class="label">CPF</label>
-                        <input 
-                            id="pac_cpf" 
-                            type="number" 
-                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);" 
-                            maxlength="11" 
-                        />
+                        <input id="pac_cpf" type="number"
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            maxlength="11" />
                     </div>
 
                     <div class="container-label-input">
@@ -94,13 +88,9 @@
 
                     <div class="container-label-input">
                         <label class="label">Telefone</label>
-                        <input 
-                            id="pac_phone"
+                        <input id="pac_phone"
                             oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                            maxlength="11"
-                            minlength="10"
-                            type="number"
-                        />
+                            maxlength="11" minlength="10" type="number" />
                     </div>
 
                     <div class="container-label-input">
@@ -108,51 +98,48 @@
                         <input id="pac_conv" />
                     </div>
                 </div>
-                <button class="button" id="buttonPatient" type="button">Enviar</button>
-            </div>
-        </form>
 
-        <form method="POST" action="#" class="forms" id="FormAddress">
-            <div class="container-one">
-                <div class="title">Endereço</div>
+                <div class="titleEndereco">Endereço</div>
 
                 <div class="container-second">
                     <div class="container-label-input">
                         <label class="label">CEP</label>
-                        <input id="cep" required />
-                    </div>
-
-                    <div class="container-label-input">
-                        <label class="label">Numero</label>
-                        <input id="number" required />
+                        <input id="cep"
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            maxlength="8" minlength="8" type="number" />
                     </div>
 
                     <div class="container-label-input">
                         <label class="label">UF</label>
-                        <input id="uf" required />
-                    </div>
-
-                    <div class="container-label-input">
-                        <label class="label">Bairro</label>
-                        <input id="district" required />
-                    </div>
-
-                    <div class="container-label-input">
-                        <label class="label">Logradouro</label>
-                        <input id="street" required />
+                        <input id="uf" />
                     </div>
 
                     <div class="container-label-input">
                         <label class="label">Cidade</label>
-                        <input id="city" required />
+                        <input id="city" />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Bairro</label>
+                        <input id="district"/>
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Logradouro</label>
+                        <input id="street" />
+                    </div>
+
+                    <div class="container-label-input">
+                        <label class="label">Numero</label>
+                        <input id="number" />
                     </div>
 
                     <div class="container-label-input">
                         <label class="label">Complemento</label>
-                        <input id="complement" required />
+                        <input id="complement" />
                     </div>
                 </div>
-                <button class="button" type="button" id="buttonAddress">Enviar</button>
+                <button class="button" type="button" id="buttonPatient">Enviar</button>
             </div>
         </form>
 
