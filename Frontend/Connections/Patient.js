@@ -1,9 +1,10 @@
 const FormPatient = document.getElementById('FormPatient');
 const buttonPatient = document.getElementById('buttonPatient');
 
-buttonPatient.addEventListener('click', () => {  
+buttonPatient.addEventListener('click', () => {
     const urlAddress = 'http://localhost:3333/address';
     const urlPatient = 'http://localhost:3333/patient';
+    const urlCompanion = 'http://localhost:3333/companion';
 
     let name = FormPatient.pac_nome.value;
     let sobrenome = FormPatient.pac_sobrenome.value;
@@ -23,6 +24,11 @@ buttonPatient.addEventListener('click', () => {
     let street = FormPatient.street.value;
     let city = FormPatient.city.value;
     let complement = FormPatient.complement.value;
+    let companionName = FormPatient.aco_name.value;
+    let companionRelation = FormPatient.aco_relationship.value;
+    let companionCPF = FormPatient.aco_cpf.value;
+    let companionRG = FormPatient.aco_rg.value;
+    let companionNasc = FormPatient.aco_born.value;
 
     const jsonPatient = {
         nome: name,
@@ -49,6 +55,15 @@ buttonPatient.addEventListener('click', () => {
         Complemento: complement,
     };
 
+    const jsonCompanion = {
+        CPFPaciente: cpf,
+        Nome: companionName,
+        Relacao: companionRelation,
+        CPF: companionCPF,
+        RG: companionRG,
+        nasc: companionNasc,
+    };
+
     const postAddress = {
         method: "POST",
         body: JSON.stringify(jsonAddress),
@@ -65,10 +80,18 @@ buttonPatient.addEventListener('click', () => {
         }
     }
 
+    const postCompanion = {
+        method: "POST",
+        body: JSON.stringify(jsonCompanion),
+        headers: {
+            "Content-type": "application/json",
+        }
+    }
+
     function FetchWithTimeout(url, options, timeout = 15000) {
         return Promise.race([
             fetch(url, options),
-            new Promise((_, reject) =>            
+            new Promise((_, reject) =>
                 setTimeout(() => {
                     reject(new Error('Serviço indisponível ' + url))
                 }, timeout)
@@ -76,5 +99,33 @@ buttonPatient.addEventListener('click', () => {
         ]);
     }
 
-    FetchWithTimeout(urlPatient, postPatient).then(() => FetchWithTimeout(urlAddress, postAddress));
+    FetchWithTimeout(urlPatient, postPatient).then(() => {
+        FetchWithTimeout(urlAddress, postAddress).then(() => {
+            FetchWithTimeout(urlCompanion, postCompanion).then(() => alert('Cadastro feito com sucesso!'));
+        })
+    });
+
+    FormPatient.pac_nome.value = "";
+    FormPatient.pac_sobrenome.value = "";
+    FormPatient.pac_sangue.value = "";
+    FormPatient.pac_rg.value = "";
+    FormPatient.pac_sex.value = "";
+    FormPatient.pac_cpf.value = "";
+    FormPatient.pac_mother.value = "";
+    FormPatient.pac_father.value = "";
+    FormPatient.pac_phone.value = "";
+    FormPatient.pac_conv.value = "";
+    FormPatient.pac_nasc.value = "";
+    FormPatient.cep.value = "";
+    FormPatient.number.value = "";
+    FormPatient.uf.value = "";
+    FormPatient.district.value = "";
+    FormPatient.street.value = "";
+    FormPatient.city.value = "";
+    FormPatient.complement.value = "";
+    FormPatient.aco_name.value = "";
+    FormPatient.aco_relationship.value = "";
+    FormPatient.aco_cpf.value = "";
+    FormPatient.aco_rg.value = "";
+    FormPatient.aco_born.value = "";
 });

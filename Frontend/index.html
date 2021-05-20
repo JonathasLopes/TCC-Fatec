@@ -95,7 +95,16 @@
 
                     <div class="container-label-input">
                         <label class="label">Convênio</label>
-                        <input id="pac_conv" />
+                        <select name="sex" id="pac_conv">
+                            <option value="" selected disabled>--</option>
+                            <option value="AMIL">AMIL</option>
+                            <option value="Notredame">Notredame</option>
+                            <option value="SulAmerica">SulAmerica</option>
+                            <option value="SulAmerica">Prevent Senior</option>
+                            <option value="SulAmerica">SUS</option>
+                            <option value="SulAmerica">UNIMED</option>
+                            <option value="SulAmerica">AJURIS</option>
+                        </select>
                     </div>
                 </div>
 
@@ -121,7 +130,7 @@
 
                     <div class="container-label-input">
                         <label class="label">Bairro</label>
-                        <input id="district"/>
+                        <input id="district" />
                     </div>
 
                     <div class="container-label-input">
@@ -139,41 +148,40 @@
                         <input id="complement" />
                     </div>
                 </div>
-                <button class="button" type="button" id="buttonPatient">Enviar</button>
-            </div>
-        </form>
 
-        <form method="POST" action="#" class="forms" id="FormCompanion">
-            <div class="container-one">
-                <div class="title">Acompanhante</div>
+                <div class="titleEndereco">Acompanhante</div>
 
                 <div class="container-second">
                     <div class="container-label-input">
                         <label class="label">Nome do acompanhante</label>
-                        <input id="name" required />
+                        <input id="aco_name" type="text" />
                     </div>
 
                     <div class="container-label-input">
                         <label class="label">Relação</label>
-                        <input id="relationship" required />
+                        <input id="aco_relationship" type="text" />
                     </div>
 
                     <div class="container-label-input">
                         <label class="label">CPF</label>
-                        <input id="cpf" required />
+                        <input id="aco_cpf" type="number"
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            maxlength="11" />
                     </div>
 
                     <div class="container-label-input">
                         <label class="label">RG</label>
-                        <input id="rg" required />
+                        <input id="aco_rg"
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            maxlength="9" type="number" />
                     </div>
 
                     <div class="container-label-input">
                         <label class="label">Data de Nascimento</label>
-                        <input id="born" required />
+                        <input id="aco_born" type="date" />
                     </div>
                 </div>
-                <button class="button" type="button" id="buttonCompanion">Enviar</button>
+                <button class="button" type="button" id="buttonPatient">Enviar</button>
             </div>
         </form>
 

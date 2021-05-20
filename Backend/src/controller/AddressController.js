@@ -33,7 +33,7 @@ class PostTable {
             client.connect(err => {
                 const db = client.db("Prontuario");
 
-                db.collection('Encaminhamento').find({}).toArray((err, result) => {
+                db.collection('Endereco').find({}).toArray((err, result) => {
                     if (err) throw err;
 
                     return response.json(result);
